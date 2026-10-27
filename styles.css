@@ -288,3 +288,9 @@ a { color: inherit; }
 .nav-logo img { mix-blend-mode: multiply; }
 /* Manual line breaks only where the line is wide enough for them to help. */
 @media (max-width: 639px) { .hero h1 br, .section h2 br, .tagline-text br { display: none; } }
+
+/* A backdrop-filter makes the bar the containing block of fixed children: while the menu is open the bar
+   drops its blur (and turns solid white) so the menu panel can cover the whole screen. */
+@media (max-width: 1023px) {
+  .nav-open .nav { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--white); }
+}
