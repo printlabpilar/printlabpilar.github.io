@@ -264,7 +264,7 @@ html{scroll-behavior:smooth}
     <div class="hero-copy">
       <span class="eyebrow">Centro de copiado online · Pilar</span>
       <h1>Subí tu PDF y <span class="kw">cotizá al instante</span>.</h1>
-      <p class="lead">Contamos las páginas y medimos cuánta tinta usa cada una. Pagás por lo que se imprime.</p>
+      <p class="lead">Impresiones de calidad, sin pagar de más. Analizamos cada página y estimamos su cobertura de tinta para cotizarla según su contenido.</p>
       <div class="specs">
         <span class="chip">Todo en A4</span>
         <span class="chip">Apuntes en papel 80 g</span>
@@ -340,7 +340,7 @@ html{scroll-behavior:smooth}
 
       <ol class="gsteps">
         <li><b>Elegí qué imprimís</b><span><em>Documentos</em> para apuntes, guías, trabajos prácticos y láminas en PDF. <em>Fotos</em> para imágenes en papel fotográfico A4.</span></li>
-        <li><b>Subí tu archivo</b><span>El cotizador cuenta las páginas y mide la tinta de cada una. Si el PDF es largo, tarda unos segundos. Tu archivo no se sube a ningún lado.</span></li>
+        <li><b>Subí tu archivo</b><span>El cotizador cuenta las páginas y estima la cobertura de tinta de cada una. Si el PDF es largo, tarda unos segundos. Tu archivo no se sube a ningún lado.</span></li>
         <li><b>Elegí las opciones</b><span>Copias, tinta, faz, formato, tapa y terminado. El precio se actualiza en el momento.</span></li>
         <li><b>Mandanos el pedido</b><span>Marcá la casilla de autoría y tocá <em>Escribinos por WhatsApp</em>. Se abre el chat con el pedido escrito: adjuntá ahí tu PDF y listo.</span></li>
       </ol>
@@ -391,7 +391,7 @@ html{scroll-behavior:smooth}
 
       <h3 class="gsub">Preguntas frecuentes</h3>
       <div class="faq">
-        <details><summary>¿Por qué las páginas a color no cuestan todas lo mismo?</summary><p>Porque medimos cuánta tinta lleva cada una. Un título en color no gasta lo mismo que una foto a página completa, así que no lo cobramos igual. Lo ves en <a href="#tinta">Cómo medimos la tinta</a>.</p></details>
+        <details><summary>¿Por qué las páginas a color no cuestan todas lo mismo?</summary><p>Porque el cotizador estima la cobertura de tinta de cada una. Un título en color no lleva lo mismo que una foto a página completa, así que no se cotizan igual. Lo ves en <a href="#tinta">Cómo estimamos la cobertura</a>.</p></details>
         <details><summary>No me deja elegir doble faz. ¿Por qué?</summary><p>Cuando queda una sola página para imprimir (por ejemplo, tapa más una hoja), no hay nada para poner del otro lado, así que va en simple faz.</p></details>
         <details><summary>Elegí doble faz y la última hoja sale más cara</summary><p>Si el total de páginas es impar, la última hoja lleva una sola cara impresa y se cobra a precio simple faz.</p></details>
         <details><summary>¿El precio que veo es el final?</summary><p>Sí, es el precio de la impresión y el terminado. El envío en moto o por correo se cotiza aparte; el retiro en Pilar no tiene cargo.</p></details>
@@ -409,8 +409,8 @@ html{scroll-behavior:smooth}
         <ul>
           <li><b>Papel de 80 gramos</b><span>Más cuerpo que el de 75 g. Se nota al resaltar y al escribir encima.</span></li>
           <li><b>Color solo donde hay color</b><span>Si tu apunte tiene 6 páginas a color entre 80, cobramos color en esas 6.</span></li>
-          <li><b>Precio según la tinta</b><span>Un título en color no cuesta lo mismo que una foto a página completa.</span></li>
-          <li><b>Fecha de entrega comprometida</b><span>Te confirmamos el día cuando tomamos el pedido. Y lo cumplimos.</span></li>
+          <li><b>Precio según la cobertura</b><span>Un título en color no cuesta lo mismo que una foto a página completa.</span></li>
+          <li><b>Fecha de entrega comprometida</b><span>Te confirmamos el día de entrega cuando tomamos el pedido.</span></li>
         </ul>
         <a class="iglink" id="igWhy" href="https://www.instagram.com/printlabpilar/" target="_blank" rel="noopener">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6"/></svg></span>
@@ -418,11 +418,11 @@ html{scroll-behavior:smooth}
         </a>
       </div>
       <div class="cov" id="tinta" aria-label="Rangos de cobertura de tinta">
-        <h3>Cómo medimos la tinta</h3>
+        <h3>Cómo estimamos la cobertura</h3>
         <div class="covrow"><div class="page p1"></div><div><b>Color liviano</b><br>Texto con detalles de color</div><span class="pct">hasta 10 %</span></div>
         <div class="covrow"><div class="page p2"></div><div><b>Color medio</b><br>Gráficos y fotos chicas</div><span class="pct">10 a 30 %</span></div>
         <div class="covrow"><div class="page p3"></div><div><b>Full color</b><br>Fondos de color y fotos grandes</div><span class="pct">más de 30 %</span></div>
-        <p class="small">El cotizador mide cada página de tu archivo y la ubica en una de estas categorías. Las páginas sin color se cobran como blanco y negro.</p>
+        <p class="small">El cotizador analiza cada página de tu archivo, estima qué parte lleva tinta y la ubica en una de estas categorías. Las páginas sin color se cobran como blanco y negro. Es una estimación a partir del contenido del archivo, no una medición del consumo real de tinta.</p>
       </div>
     </div>
   </section>
@@ -780,7 +780,7 @@ function docHTML(it){
 function detailHTML(it, p){
   const pg = nums => nums.length > 1 ? `Págs. ${nums[0]} y ${nums[1]}` : `Pág. ${nums[0]}`;
   const face = f => {
-    const tipo = f.tapa ? `Tapa · ${tapaName(it.tapa).toLowerCase()}` : f.color ? `${tierFor(f.cov).nombre} · ${f.cov} % de tinta` : (f.gris ? "Pasada a B&N" : "Blanco y negro");
+    const tipo = f.tapa ? `Tapa · ${tapaName(it.tapa).toLowerCase()}` : f.color ? `${tierFor(f.cov).nombre} · ${f.cov} % de cobertura estimada` : (f.gris ? "Pasada a B&N" : "Blanco y negro");
     return `<td>${pg(f.nums)}</td><td>${tipo}</td><td class="r">${fmt(f.price)}</td>`;
   };
   const rows = p.sheets.map((sh, k) => {
