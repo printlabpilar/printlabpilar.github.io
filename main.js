@@ -30,7 +30,7 @@
   /* Tagline: each word lights up as it crosses a line near the middle of the screen */
   const tagline = document.querySelector('[data-words]');
   if (tagline) {
-    const resaltar = new Set(['estudiar.', 'impresos']);
+    const resaltar = new Set(['estudiar.', 'imprimir']);
     tagline.innerHTML = tagline.innerHTML.split(/(<br>\s*)/).map((parte) => (parte.startsWith('<br')
       ? parte
       : parte.split(/\s+/).filter(Boolean).map((w) => `<span class="w${resaltar.has(w) ? ' c' : ''}">${w}</span>`).join(' '))).join('');
@@ -74,9 +74,9 @@
     const mensaje = form.elements.mensaje;
     const ok = [validar(nombre, 'e-nombre'), validar(mensaje, 'e-mensaje')];
     if (ok.includes(false)) { (ok[0] ? mensaje : nombre).focus(); estado.textContent = ''; return; }
-    const texto = `Hola PrintLab Pilar, soy ${nombre.value.trim()}.\nConsulta: ${form.elements.tema.value}\n${mensaje.value.trim()}`;
+    const texto = `Hola, PrintLab Pilar. Mi nombre es ${nombre.value.trim()}.\nMotivo de la consulta: ${form.elements.tema.value}\n${mensaje.value.trim()}`;
     const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
-    estado.textContent = 'Abrimos WhatsApp con tu mensaje listo. Solo falta tocar Enviar.';
+    estado.textContent = 'Se abrió WhatsApp con tu mensaje. Solo resta enviarlo.';
     const ventana = window.open(url, '_blank', 'noopener');
     if (!ventana) window.location.href = url; // pop-up blocked (some phones): go straight to WhatsApp
   });
