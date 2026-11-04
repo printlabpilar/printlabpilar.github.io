@@ -77,8 +77,9 @@
     const texto = `Hola, PrintLab Pilar. Mi nombre es ${nombre.value.trim()}.\nMotivo de la consulta: ${form.elements.tema.value}\n${mensaje.value.trim()}`;
     const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
     estado.textContent = 'Se abrió WhatsApp con tu mensaje. Solo resta enviarlo.';
-    const ventana = window.open(url, '_blank', 'noopener');
-    if (!ventana) window.location.href = url; // pop-up blocked (some phones): go straight to WhatsApp
+    const ventana = window.open(url, '_blank');
+    if (ventana) ventana.opener = null; // same protection as noopener, but we can still tell whether it opened
+    else window.location.href = url; // pop-up blocked (some phones): go straight to WhatsApp
   });
   ['nombre', 'mensaje'].forEach((n) => form.elements[n].addEventListener('input', () => {
     if (form.elements[n].closest('.field').classList.contains('invalido')) validar(form.elements[n], `e-${n}`);

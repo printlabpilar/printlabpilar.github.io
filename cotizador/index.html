@@ -1,4 +1,6 @@
 <!doctype html><html lang="es-AR"><head><meta charset=utf8>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- Copia del cotizador publicado en claude.ai/artifact/6td5Ea3xn742FAnGrfvTuH. Si cambian los precios (CONFIG), actualizar ambos. -->
 <meta name="description" content="Cotizador online de PrintLab Pilar: cargá tu PDF y conocé el precio de tus impresiones al instante, calculado según el contenido de tu documento.">
 <link rel="canonical" href="https://printlabpilar.github.io/cotizador/">
@@ -6,11 +8,9 @@
 <meta name="theme-color" content="#0D1C3E">
 <meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Printlab Cotizador</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<style>@font-face{font-family:"Montserrat";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/montserrat-latin-400-normal.woff2") format("woff2")}@font-face{font-family:"Montserrat";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/montserrat-latin-600-normal.woff2") format("woff2")}@font-face{font-family:"Montserrat";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/montserrat-latin-700-normal.woff2") format("woff2")}@font-face{font-family:"Montserrat";font-style:normal;font-weight:800;font-display:swap;src:url("../fonts/montserrat-latin-800-normal.woff2") format("woff2")}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js" integrity="sha384-SnzOobpRMLXZ52iJvZm/C0fYw0OQemTXzTjIsdsfMcrCtCEe9qgzxTd3RSklO5x2" crossorigin="anonymous"></script>
 <style>
 /* Layout según la Guía de Marca PrintLab Pilar: fondo blanco dominante, azul marino como color de marca,
    CMYK como acento mínimo (franja de firma). Hero en dos columnas: mensaje + cotizador. Diseño solo claro, a propósito. */
