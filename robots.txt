@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://printlabpilar.github.io/sitemap.xml
+Sitemap: https://printlabpilar.com.ar/sitemap.xml
